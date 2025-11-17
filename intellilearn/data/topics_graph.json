@@ -1,0 +1,61 @@
+{
+  "Variables": {
+    "prereqs": [],
+    "difficulty": 1,
+    "description": "Understanding variables and data storage"
+  },
+  "Data Types": {
+    "prereqs": [
+      "Variables"
+    ],
+    "difficulty": 1,
+    "description": "Different types of data in programming"
+  },
+  "Conditionals": {
+    "prereqs": [
+      "Variables"
+    ],
+    "difficulty": 2,
+    "description": "If-else statements and decision making"
+  },
+  "Loops": {
+    "prereqs": [
+      "Variables",
+      "Conditionals"
+    ],
+    "difficulty": 3,
+    "description": "Iteration and repetition structures"
+  },
+  "Functions": {
+    "prereqs": [
+      "Variables",
+      "Data Types"
+    ],
+    "difficulty": 3,
+    "description": "Reusable code blocks and modularity"
+  },
+  "Arrays": {
+    "prereqs": [
+      "Loops",
+      "Functions"
+    ],
+    "difficulty": 4,
+    "description": "Collections and data structures"
+  },
+  "Objects": {
+    "prereqs": [
+      "Data Types",
+      "Functions"
+    ],
+    "difficulty": 4,
+    "description": "Object-oriented programming basics"
+  },
+  "Recursion": {
+    "prereqs": [
+      "Functions",
+      "Loops"
+    ],
+    "difficulty": 5,
+    "description": "Functions calling themselves"
+  }
+}

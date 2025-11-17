@@ -1,0 +1,106 @@
+{
+  "Variables": [
+    {
+      "id": 1,
+      "text": "What is a variable in programming?",
+      "options": [
+        "A container for storing data values",
+        "A type of loop",
+        "A function parameter",
+        "A conditional statement"
+      ],
+      "correct": 0
+    }
+  ],
+  "Data Types": [
+    {
+      "id": 2,
+      "text": "Which of these is NOT a primitive data type?",
+      "options": [
+        "Integer",
+        "String",
+        "Boolean",
+        "Array"
+      ],
+      "correct": 3
+    }
+  ],
+  "Conditionals": [
+    {
+      "id": 3,
+      "text": "What does an if-else statement do?",
+      "options": [
+        "Repeats code multiple times",
+        "Makes decisions based on conditions",
+        "Defines a function",
+        "Stores data"
+      ],
+      "correct": 1
+    }
+  ],
+  "Loops": [
+    {
+      "id": 4,
+      "text": "What is the purpose of a loop?",
+      "options": [
+        "To store variables",
+        "To repeat code execution",
+        "To declare functions",
+        "To create objects"
+      ],
+      "correct": 1
+    }
+  ],
+  "Functions": [
+    {
+      "id": 5,
+      "text": "What is a function?",
+      "options": [
+        "A data type",
+        "A reusable block of code",
+        "A variable",
+        "A loop structure"
+      ],
+      "correct": 1
+    }
+  ],
+  "Arrays": [
+    {
+      "id": 6,
+      "text": "What is an array?",
+      "options": [
+        "A single value",
+        "A collection of elements",
+        "A function",
+        "A conditional"
+      ],
+      "correct": 1
+    }
+  ],
+  "Objects": [
+    {
+      "id": 7,
+      "text": "What is an object in programming?",
+      "options": [
+        "A primitive type",
+        "A collection of key-value pairs",
+        "A loop",
+        "A variable"
+      ],
+      "correct": 1
+    }
+  ],
+  "Recursion": [
+    {
+      "id": 8,
+      "text": "What is recursion?",
+      "options": [
+        "A function calling itself",
+        "A type of loop",
+        "A data structure",
+        "A variable type"
+      ],
+      "correct": 0
+    }
+  ]
+}
