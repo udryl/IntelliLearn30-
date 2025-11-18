@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliLearn - Personalized Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .features {
+            text-align: left;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .feature {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .feature-icon {
+            font-size: 24px;
+        }
+        
+        .feature-text {
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .login-form {
+            margin-top: 30px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            transition: border 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .error {
+            color: #e74c3c;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .tech-stack {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🧠</div>
+        <h1>IntelliLearn</h1>
+        <p class="subtitle">Personalized Learning with Machine Learning</p>
+        
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">🎯</span>
+                <span class="feature-text">Bayesian Knowledge Tracing tracks your mastery</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🤖</span>
+                <span class="feature-text">Q-Learning optimizes your learning path</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">✨</span>
+                <span class="feature-text">K-Means identifies your learning style</span>
+            </div>
+        </div>
+        
+        <div class="login-form">
+            <input type="text" id="studentName" placeholder="Enter your name" />
+            <button onclick="login()">Start Learning</button>
+            <div class="error" id="errorMsg"></div>
+        </div>
+        
+        <div class="tech-stack">
+            Powered by Python, Flask & Machine Learning
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            function login() {
+                const nameEl = document.getElementById('studentName');
+                const errorMsg = document.getElementById('errorMsg');
+                const name = nameEl ? nameEl.value.trim() : '';
+
+                if (!name) {
+                    if (errorMsg) errorMsg.textContent = 'Please enter your name';
+                    return;
+                }
+
+                fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name: name })
+                })
+                .then(response => {
+                    if (!response.ok) return response.json().then(r => Promise.reject(r));
+                    return response.json();
+                })
+                .then(data => {
+                    if (data && data.error) {
+                        if (errorMsg) errorMsg.textContent = data.error;
+                    } else {
+                        window.location.href = '/dashboard';
+                    }
+                })
+                .catch(error => {
+                    if (error && error.error && errorMsg) {
+                        errorMsg.textContent = error.error;
+                    } else if (errorMsg) {
+                        errorMsg.textContent = 'Connection error. Please try again.';
+                    }
+                    // Keep the console log for debugging
+                    console.error('Error:', error);
+                });
+            }
+
+            // Allow Enter key to submit (use keydown which is more widely supported)
+            const nameInput = document.getElementById('studentName');
+            if (nameInput) {
+                nameInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') {
+                        login();
+                    }
+                });
+            }
+
+            // Expose login for button onclick
+            window.login = login;
+        });
+    </script>
+</body>
+</html>
+    
